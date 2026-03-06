@@ -1,7 +1,5 @@
 ## Part 1: What is an Abstract Data Type (ADT)?
 
-![ADT Blueprint vs Implementation](docs/assets/adt_diagram.png)
-
 In computer science, an **Abstract Data Type (ADT)** is a conceptual model that defines how we interact with data, completely separated from *how* that data is actually stored in the computer's memory. 
 
 Think of an ADT as a strictly enforced contract or a blueprint. For example, a **Queue** is an ADT. Its contract dictates a First-In-First-Out (FIFO) rule with two main operations:
