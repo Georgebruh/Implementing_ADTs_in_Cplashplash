@@ -1,0 +1,4 @@
+benchmark.exe
+__pycache__/
+*.pyc
+results.csv
