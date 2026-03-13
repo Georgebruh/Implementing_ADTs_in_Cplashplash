@@ -1,7 +1,7 @@
 #include <iostream>
 #include <chrono>
 #include <string>
-#include "arraystack.cpp" 
+#include "../Implementations/arraystack.h"
 
 void benchmarkArrayStack() {
     for (int N = 1000; N <= 1000000; N += 1000) {
