@@ -1,6 +1,6 @@
 #pragma once
-#include "array.cpp"
-#include "list.hpp"
+#include "../Base_Structures/array.cpp"
+#include "../Interfaces/list.hpp"
 #include <algorithm>
 #include <stdexcept>
 
