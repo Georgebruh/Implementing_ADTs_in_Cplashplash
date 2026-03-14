@@ -2,6 +2,7 @@
 #include <chrono>
 #include <string>
 #include "../Implementations/arraystack.cpp"
+#include "../Implementations/sll_queue.cpp"
 
 void benchmarkArrayStack() {
     for (int N = 1000; N <= 1000000; N += 1000) {
@@ -14,6 +15,30 @@ void benchmarkArrayStack() {
             stack.push(i);
         }
         
+        auto end = std::chrono::high_resolution_clock::now();
+        std::chrono::duration<double> duration = end - start;
+
+        std::cout << N << "," << duration.count() << "\n";
+    }
+}
+
+void benchmarkSLLQueue() {
+    for (int N = 1000; N <= 1000000; N += 1000) {
+
+        SLLQueue<int> queue;
+
+        auto start = std::chrono::high_resolution_clock::now();
+
+        // enqueue N elements
+        for (int i = 0; i < N; ++i) {
+            queue.enqueue(i);
+        }
+
+        // dequeue all N elements
+        while (!queue.isEmpty()) {
+            queue.dequeue();
+        }
+
         auto end = std::chrono::high_resolution_clock::now();
         std::chrono::duration<double> duration = end - start;
 
@@ -36,8 +61,9 @@ int main(int argc, char* argv[]) {
     if (adt_choice == "ArrayStack") {
         benchmarkArrayStack();
     } 
-
-    // put else here to select other ADTS
+    else if (adt_choice == "SLLQueue") {
+        benchmarkSLLQueue();
+    }
     else {
         // If Python sends a name we haven't built yet, throw an error
         std::cerr << "Error: Unknown data structure '" << adt_choice << "'.\n";
